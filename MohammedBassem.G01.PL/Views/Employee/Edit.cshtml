@@ -1,0 +1,112 @@
+﻿@* @model MohammedBassem.G01.DAL.Models.Employee
+
+<h4>Employee</h4>
+<hr />
+@{
+    SelectList department = new SelectList(ViewBag.Department, "Id", "Name");
+}
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adderss" class="control-label"></label>
+                <input asp-for="Adderss" class="form-control" />
+                <span asp-validation-for="Adderss" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="salary" class="control-label"></label>
+                <input asp-for="salary" class="form-control" />
+                <span asp-validation-for="salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageName" class="control-label"></label>
+                <input asp-for="ImageName" class="form-control" />
+                <span asp-validation-for="ImageName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsDeleted" /> @Html.DisplayNameFor(model => model.IsDeleted)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="HiringData" class="control-label"></label>
+                <input asp-for="HiringData" class="form-control" />
+                <span asp-validation-for="HiringData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfCreation" class="control-label"></label>
+                <input asp-for="DateOfCreation" class="form-control" />
+                <span asp-validation-for="DateOfCreation" class="text-danger"></span>
+            </div>
+          @*   <div class="form-group">
+                <label asp-for="WorkForId" class="control-label"></label>
+                <select asp-for="WorkForId" class="form-control" asp-items="ViewBag.WorkForId"></select>
+                <span asp-validation-for="WorkForId" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <label asp-for="WorkForId" class="control-label"></label>
+                <select class="form-control" asp-for="WorkForId" asp-items="department"></select>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+ *@
+<!-- طريقه حل اخري -->
+@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Employee</h1>
+<br />
+<br />
+
+<form asp-action="Edit" enctype="multipart/form-data">
+    <div asp-validation-summary="All"></div>
+
+    <partial name="PartialViews/EditCreateEployeePartialView" model="Model"></partial>
+    <input asp-for="ImageName" hidden />
+
+    <input type="Submit" value="Edit" class="btn btn-warning" />
+    <a asp-action="Index" class="btn btn-light">Back To List</a>
+</form>
+@section Validationsection {
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script> <!--jquery-validation دي عشان استخدم ال-->
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

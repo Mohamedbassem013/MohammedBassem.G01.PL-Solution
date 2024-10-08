@@ -1,0 +1,23 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Employee</h1>
+<br />
+<br />
+
+<form asp-action="Edit" enctype="multipart/form-data">
+    <div asp-validation-summary="All"></div>
+
+    <partial name="UserPartialViews/EditCreateEployeePartialView" model="Model"></partial>
+   
+
+    <input type="Submit" value="Edit" class="btn btn-warning" />
+    <a asp-action="Index" class="btn btn-light">Back To List</a>
+</form>
+@section Validationsection {
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script> <!--jquery-validation دي عشان استخدم ال-->
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
